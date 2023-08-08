@@ -1,0 +1,15 @@
+
+targetName: 华南理工大学研究生招生网硕士招生信息
+baseUrl: https://yz.scut.edu.cn
+url: https://yz.scut.edu.cn/sszs/list.htm
+pageXPath: "/html/body/section/div[@class='list_container']/div/div[@class='list-right']
+/div[@class='main_list']//ul[@class='inform_list']/li"
+timeXPath: ./div/span[@class='date']/text()
+timeFormat: '%Y-%m-%d'
+titleXPath: ./div/a[@target='_blank']/text()
+hrefXPath: ./div/a[@target='_blank']/@href
+# 目标网站使用时区
+timezone:
+  timedelta:
+    hours: 8
+  name: 'UTC+08:00'

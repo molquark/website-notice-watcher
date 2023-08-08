@@ -1,0 +1,15 @@
+# 脚本使用时区
+timezone:
+  timedelta:
+    hours: 8
+  name: 'UTC+08:00'
+
+targetConfigPath: ./targetConfigs
+
+# 脚本上次运行时间记录文件
+recordFilePath: ./lastRecord.yaml
+# 记录运行时间的格式
+recordTimeFormat: '%Y-%m-%d %H:%M:%S.%f%z'
+
+
+
