@@ -50,6 +50,12 @@ class TargetConfig(Config):
     def getTimezone(self) -> timezone:
         return self._config["timezone"]
 
+    def isOnlyDate(self) -> bool:
+        return self._config.get("onlyDate", False)
+
+    def getTarget(self) -> str:
+        return self._config["target"]
+
 
 # 驱动程序
 if __name__ == "__main__":

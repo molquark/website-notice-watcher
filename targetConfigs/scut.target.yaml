@@ -1,4 +1,5 @@
-
+# 网站解析配置
+target: scut
 targetName: 华南理工大学研究生招生网硕士招生信息
 baseUrl: https://yz.scut.edu.cn
 url: https://yz.scut.edu.cn/sszs/list.htm
@@ -8,6 +9,12 @@ timeXPath: ./div/span[@class='date']/text()
 timeFormat: '%Y-%m-%d'
 titleXPath: ./div/a[@target='_blank']/text()
 hrefXPath: ./div/a[@target='_blank']/@href
+
+# 时间比较配置
+# 仅比较日期，不比较时间, 在运行记录中记录当天已发送的公告
+onlyDate: TRUE
+
+
 # 目标网站使用时区
 timezone:
   timedelta:
