@@ -36,7 +36,8 @@ if __name__ == "__main__":
     # TODO: 格式化发送内容
     targetMsgs: dict[str, MIMEText] = {}
     for target, results in targetResults.items():
-        targetMsgs[target] = MIMEText("\n".join(map(lambda x: str(x), results)), "plain", "utf-8")
+        if len(results) > 0:  # 有内容才发送
+            targetMsgs[target] = MIMEText("\n".join(map(lambda x: str(x), results)), "plain", "utf-8")
 
     # TODO: 发送邮件
     emailSender = EmailSender(runtimeContext.get_email_config())
