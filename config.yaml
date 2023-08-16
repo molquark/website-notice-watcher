@@ -5,6 +5,7 @@ timezone:
   name: 'UTC+08:00'
 
 targetConfigPath: ./targetConfigs
+secretConfigPath: ./secret.config.yaml
 
 # 脚本上次运行时间记录文件
 recordFilePath: ./lastRecord.yaml

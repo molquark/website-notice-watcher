@@ -49,7 +49,7 @@ class RunTimeContext:
         self.recordThisRunTime()  # 记录本次运行时间
 
         # 获取敏感配置
-        self._secretConfig = SecretConfig.fromYaml("secret.config.yaml")
+        self._secretConfig = SecretConfig.fromYaml(self._config.secretConfigPath)
         self._observers: dict[str, list[str]] = self._secretConfig.getObservers()
         self._emailConfig = EmailConfig(self._secretConfig.getEmail())
 
