@@ -2,5 +2,6 @@
 .git
 __pycache__
 
-
+lastRecord.yaml
+website-notice-watcher.zip
 secret.config.yaml
