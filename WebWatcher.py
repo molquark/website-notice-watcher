@@ -70,16 +70,20 @@ class WebWatcher:
         targetConfig = self._targetConfig
         node = etree.HTML(html)  # 解析HTML文档
         for i in node.xpath(targetConfig.getPageXPath()):
-            # 解析获取公告时间、标题、链接
-            n_time = i.xpath(targetConfig.getTimeXPath())[0]
-            n_title = i.xpath(targetConfig.getTitleXPath())[0]
-            n_href: str = i.xpath(targetConfig.getHrefXPath())[0]
+            try:
+                # 解析获取公告时间、标题、链接
+                n_time = i.xpath(targetConfig.getTimeXPath())[0]
+                n_title = i.xpath(targetConfig.getTitleXPath())[0]
+                n_href: str = i.xpath(targetConfig.getHrefXPath())[0]
 
-            # 拼接链接为可点击的完整链接
-            n_href = self.href2url(n_href, targetConfig)
-            # 解析时间
-            the_time = self.parse_time(n_time, targetConfig)
-            yield the_time, self.WatchResult(n_time, n_title, n_href)
+                # 拼接链接为可点击的完整链接
+                n_href = self.href2url(n_href, targetConfig)
+                # 解析时间
+                the_time = self.parse_time(n_time, targetConfig)
+                yield the_time, self.WatchResult(n_time, n_title, n_href)
+            except Exception as e:
+                print(e, file=sys.stderr)
+
 
     @staticmethod
     def href2url(href: str, targetConfig: TargetConfig) -> str:
